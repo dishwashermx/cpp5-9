@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                     :+:      :+:    :+:   */
+/*   AForm.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,38 +14,38 @@
 
 // --------------------------- Default Stuff ----------------------------
 
-Form::Form() : _name("Paper"), _signGrade(150), _executeGrade(150), _ifSigned(0) {
-	std::cout << "Form Default Constructor called" << std::endl;
+AForm::AForm() : _name("Paper"), _signGrade(150), _executeGrade(150), _ifSigned(0) {
+	std::cout << "AForm Default Constructor called" << std::endl;
 }
 
-Form::Form(const std::string name, const int signgrade, const int executegrade) : _name(name), _signGrade(signgrade), _executeGrade(executegrade), _ifSigned(0) {
-	std::cout << "Form Constructor called" << std::endl;
+AForm::AForm(const std::string name, const int signgrade, const int executegrade) : _name(name), _signGrade(signgrade), _executeGrade(executegrade), _ifSigned(0) {
+	std::cout << "AForm Constructor called" << std::endl;
 	checkGrade(signgrade, executegrade);
 }
 
-Form::Form(const Form &other) : _name(other._name), _signGrade(other._signGrade), _executeGrade(other._executeGrade), _ifSigned(other._ifSigned) {
-	std::cout << "Form Copy Constructor called" << std::endl;
+AForm::AForm(const AForm &other) : _name(other._name), _signGrade(other._signGrade), _executeGrade(other._executeGrade), _ifSigned(other._ifSigned) {
+	std::cout << "AForm Copy Constructor called" << std::endl;
 }
 
-Form::~Form() {
-	std::cout << "Form Destructor called" << std::endl;
+AForm::~AForm() {
+	std::cout << "AForm Destructor called" << std::endl;
 }
 
 // --------------------------- Getters ----------------------------
 
-std::string Form::getName() const {
+std::string AForm::getName() const {
 	return (this->_name);
 }
 
-int Form::getSignGrade() const {
+int AForm::getSignGrade() const {
 	return (this->_signGrade);
 }
 
-int Form::getExecuteGrade() const {
+int AForm::getExecuteGrade() const {
 	return (this->_executeGrade);
 }
 
-std::string Form::getIfSigned() const {
+std::string AForm::getIfSigned() const {
 	if (_ifSigned == 0)
 		return (" is not signed");
 	else
@@ -54,29 +54,29 @@ std::string Form::getIfSigned() const {
 
 // --------------------------- Setters ----------------------------
 
-void Form::checkGrade(int grade1, int grade2) {
+void AForm::checkGrade(int grade1, int grade2) {
 	if (grade1 > 150 || grade2 > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else if (grade1 < 1 || grade2 < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 }
 
-const char *Form::GradeTooLowException::what(void) const throw() {
+const char *AForm::GradeTooLowException::what(void) const throw() {
 	return ("Grade too low");
 }
 
-const char *Form::GradeTooHighException::what(void) const throw() {
+const char *AForm::GradeTooHighException::what(void) const throw() {
 	return ("Grade too high");
 }
 
 // --------------------------- Misc ----------------------------
 
-std::ostream& operator<<(std::ostream& out, const Form& Form) {
-	out << "Form " << Form.getName() << Form.getIfSigned() << ", signable by grade " << Form.getSignGrade() << ", executable by grade " << Form.getExecuteGrade() << ".";
+std::ostream& operator<<(std::ostream& out, const AForm& AForm) {
+	out << "AForm " << AForm.getName() << AForm.getIfSigned() << ", signable by grade " << AForm.getSignGrade() << ", executable by grade " << AForm.getExecuteGrade() << ".";
 	return (out);
 }
 
-void Form::beSigned(Bureaucrat& ref) {
+void AForm::beSigned(Bureaucrat &ref) {
 	int grade = getSignGrade();
 
 	if (ref.getGrade() > grade) {
@@ -86,7 +86,7 @@ void Form::beSigned(Bureaucrat& ref) {
 	_ifSigned = true;
 }
 
-void Form::beExecuted(Bureaucrat& ref) {
+void AForm::beExecuted(Bureaucrat &ref) const {
 	int grade = getExecuteGrade();
 
 	if (ref.getGrade() > grade) {

@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:12:05 by ghwa              #+#    #+#             */
-/*   Updated: 2024/11/07 16:02:24 by ghwa             ###   ########.fr       */
+/*   Updated: 2024/11/07 17:20:36 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Bureaucrat {
 		void incrementGrade();
 		void decrementGrade();
 		void signForm(AForm &ref);
-		void executeForm(AForm &ref);
+		void executeForm(AForm const &ref);
 
 		class GradeTooLowException : public std::exception {
 			public:

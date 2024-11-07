@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:12:07 by ghwa              #+#    #+#             */
-/*   Updated: 2024/11/07 16:02:32 by ghwa             ###   ########.fr       */
+/*   Updated: 2024/11/07 17:20:39 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void Bureaucrat::signForm(AForm &ref) {
 	}
 }
 
-void Bureaucrat::executeForm(AForm &ref) {
+void Bureaucrat::executeForm(AForm const &ref) {
 	try {
 		ref.beExecuted(*this);
 		std::cout << this->getName() << " executed " << ref.getName() << std::endl;
