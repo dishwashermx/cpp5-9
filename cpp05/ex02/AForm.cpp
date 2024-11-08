@@ -52,7 +52,7 @@ std::string AForm::getIfSigned() const {
 		return (" is signed");
 }
 
-// --------------------------- Setters ----------------------------
+// --------------------------- Exceptions ----------------------------
 
 void AForm::checkGrade(int grade1, int grade2) {
 	if (grade1 > 150 || grade2 > 150)
@@ -69,27 +69,37 @@ const char *AForm::GradeTooHighException::what(void) const throw() {
 	return ("Grade too high");
 }
 
+const char *AForm::SignedException::what(void) const throw() {
+	return ("Form already signed");
+}
+
 // --------------------------- Misc ----------------------------
 
-std::ostream& operator<<(std::ostream& out, const AForm& AForm) {
-	out << "AForm " << AForm.getName() << AForm.getIfSigned() << ", signable by grade " << AForm.getSignGrade() << ", executable by grade " << AForm.getExecuteGrade() << ".";
-	return (out);
+std::ostream& operator<<(std::ostream& out, const AForm& form) {
+    out << "AForm " << form.getName() << form.getIfSigned()
+        << ", signable by grade " << form.getSignGrade()
+        << ", executable by grade " << form.getExecuteGrade() << ".";
+    return out;
 }
 
 void AForm::beSigned(Bureaucrat &ref) {
 	int grade = getSignGrade();
 
-	if (ref.getGrade() > grade) {
+	if (this->_ifSigned == true) {
+		throw (SignedException());
+		return ;
+	}
+	else if (ref.getGrade() > grade) {
 		throw (GradeTooLowException());
 		return ;
 	}
 	_ifSigned = true;
 }
 
-void AForm::beExecuted(Bureaucrat &ref) const {
+void AForm::beExecuted(Bureaucrat const &executor) const {
 	int grade = getExecuteGrade();
 
-	if (ref.getGrade() > grade) {
+	if (executor.getGrade() > grade) {
 		throw (GradeTooLowException());
 		return ;
 	}
