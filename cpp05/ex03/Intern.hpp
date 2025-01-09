@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 12:45:01 by ghwa              #+#    #+#             */
-/*   Updated: 2024/12/06 15:09:58 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/09 09:49:24 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Intern {
 	public:
@@ -25,7 +25,7 @@ class Intern {
 		Intern& operator= (const Intern& other);
 		~Intern();
 
-		Form *makeForm(const std::string form, const std::string target);
+		AForm *makeForm(const std::string form, const std::string target);
 } ;
 
 #endif

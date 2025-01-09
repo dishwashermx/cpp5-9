@@ -6,13 +6,13 @@
 #    By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 13:39:06 by ghwa              #+#    #+#              #
-#    Updated: 2025/01/09 09:56:22 by ghwa             ###   ########.fr        #
+#    Updated: 2025/01/09 14:27:03 by ghwa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = g++
 FLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-SRCS = main.cpp Intern.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = a.out
 
