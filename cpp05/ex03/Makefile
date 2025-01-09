@@ -6,7 +6,7 @@
 #    By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 13:39:06 by ghwa              #+#    #+#              #
-#    Updated: 2024/11/28 10:24:50 by ghwa             ###   ########.fr        #
+#    Updated: 2024/11/28 12:44:33 by ghwa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME): $(OBJS)
 clean:
 	rm -f $(OBJS)
 	rm -f $(NAME)
-	rm -f ~shrubbery
+	rm -f *shrubbery
 
 re: clean all
 
