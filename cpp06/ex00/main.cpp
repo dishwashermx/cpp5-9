@@ -6,10 +6,12 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:27:53 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/09 14:28:24 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/13 09:35:10 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main(void) {
+#include "ScalarConverter.hpp"
+
+int main(std::string literal) {
 	return (0);
 }
