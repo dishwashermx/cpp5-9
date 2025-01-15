@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:24 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/13 15:41:12 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/15 17:55:44 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,29 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <iomanip>
+#include <limits>
+#include <string>
+#include <cmath>
+#include <sstream>
 
 class ScalarConverter {
 	public:
 		static void convert(const std::string &literal);
 
-		ScalarConverter() = delete;
-		ScalarConverter(const ScalarConverter &) = delete;
-		ScalarConverter &operator=(const ScalarConverter &) = delete;
-		~ScalarConverter() = default;
 	private:
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter &);
+		ScalarConverter &operator=(const ScalarConverter &);
+		~ScalarConverter();
 		static bool isChar(const std::string &literal);
 		static bool isInt(const std::string &literal);
 		static bool isFloat(const std::string &literal);
 		static bool isDouble(const std::string &literal);
 		static void print(char c, int i, float f, double d, bool validChar);
+		static void printnan(const std::string &literal);
 };
+
+std::string intToString(int i);
 
 #endif

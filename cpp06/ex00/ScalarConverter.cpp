@@ -6,19 +6,39 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:01 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/13 15:43:44 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/15 18:06:01 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 void ScalarConverter::convert(const std::string &literal) {
+	std::stringstream ss(literal);
 	try {
 		if (isChar(literal)) {
-			char c = literal[0];
+			char c;
+			ss >> c;
 			print(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c), true);
 		}
-		if ()
+		else if (isInt(literal)) {
+			int i;
+			ss >> i;
+			print(0, i, static_cast<float>(i), static_cast<double>(i), isprint(i));
+		}
+		else if (isFloat(literal)) {
+			float f;
+			ss >> f;
+			print(0, static_cast<int>(f), f, static_cast<double>(f), false);
+		}
+		else if (isDouble(literal)) {
+			double d;
+			ss >> d;
+			print(0, static_cast<int>(d), static_cast<float>(d), d, false);
+		}
+		else if (literal == "nan" || literal == "nanf" || literal == "-inf" || literal == "+inf" || literal == "-inff" || literal == "+inff")
+			printnan(literal);
+		else
+			throw std::invalid_argument("Invalid literal format");
 
 	}
 	catch (const std::exception &e) {
@@ -31,17 +51,96 @@ bool ScalarConverter::isChar(const std::string &literal) {
 }
 
 bool ScalarConverter::isInt(const std::string &literal) {
-	
+	size_t i = 0;
+	if ((literal[0] == '+' || literal[0] == '-') && literal.length() > 1)
+		i++;
+	while(i < literal.length()) {
+		if (!isdigit(literal[i]))
+			return false;
+		i++;
+	}
+	return true;
 }
 
 bool ScalarConverter::isFloat(const std::string &literal) {
+	size_t i = 0;
+	int decimal = 0;
 
+	if ((literal[0] == '+' || literal[0] == '-'))
+		i++;
+	while (i < literal.length() && std::isdigit(literal[i]))
+		i++;
+	while (literal[i] == '.')
+		i++, decimal++;
+	while (i < literal.length() && std::isdigit(literal[i]))
+		i++;
+	return (decimal == 1 && i == literal.length());
 }
 
 bool ScalarConverter::isDouble(const std::string &literal) {
+	size_t i = 0;
+	int decimal = 0;
 
+	if ((literal[0] == '+' || literal[0] == '-'))
+		i++;
+	while (i < literal.length() && std::isdigit(literal[i]))
+		i++;
+	while (literal[i] == '.')
+		i++, decimal++;
+	while (i < literal.length() && std::isdigit(literal[i]))
+		i++;
+
+	if (i < literal.length() && (literal[i] == 'e' || literal[i] == 'E')) {
+		i++;
+		if (literal[i] == '+' || literal[i] == '-') {
+			i++;
+		}
+		if (i < literal.length() && std::isdigit(literal[i])) {
+			while (i < literal.length() && std::isdigit(literal[i]))
+				i++;
+		} else
+			return false;
+	}
+	return (decimal == 1 && i == literal.length());
 }
 
-void ScalarConverter::print(char c, int i, float f, double d, bool ValidChar) {
+std::string intToString(int i) {
+	std::ostringstream oss;
+	oss << i;
+	return oss.str();
+}
 
+void ScalarConverter::print(char c, int i, float f, double d, bool validChar) {
+	std::cout << "char: " << (validChar ? std::string(1, c) : "Non displayable") << "\n";
+
+	std::cout << "int: " << (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min() ? "impossible" : intToString(i)) << "\n";
+
+	std::cout << "float: ";
+	if (std::isnan(f))
+		std::cout << "nanf\n";
+	else if (std::isinf(f))
+		std::cout << (f < 0 ? "-inff" : "inff") << "\n";
+	else
+		std::cout << std::fixed << std::setprecision(1) << f << "f\n";
+
+	std::cout << "double: ";
+	if (std::isnan(d))
+		std::cout << "nan\n";
+	else if (std::isinf(d))
+		std::cout << (d < 0 ? "-inf" : "inf") << "\n";
+	else
+		std::cout << std::fixed << std::setprecision(1) << d << std::endl;
+}
+
+void ScalarConverter::printnan(const std::string &literal) {
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (literal == "nan" || literal == "+inf" || literal == "-inf") {
+		std::cout << "float: " << literal << "f" << std::endl;
+		std::cout << "double: " << literal << std::endl;
+	}
+	if (literal == "nanf" || literal == "+inff" || literal == "-inff") {
+		std::cout << "float: " << literal << std::endl;
+		std::cout << "double: " << literal.substr(0, literal.length() - 1) << std::endl;
+	}
 }

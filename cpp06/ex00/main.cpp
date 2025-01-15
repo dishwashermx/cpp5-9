@@ -6,12 +6,14 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:27:53 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/13 09:35:10 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/15 15:58:10 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-int main(std::string literal) {
+int main(int argc, char ** argv) {
+	if (argc == 2)
+		ScalarConverter::convert(argv[1]);
 	return (0);
 }
