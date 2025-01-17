@@ -6,32 +6,36 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:01 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/15 18:13:59 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/17 10:47:57 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter() {
+ScalarConverter::ScalarConverter() : value("") {
 	std::cout << "Default Constructor called." << std::endl;
 }
 
-ScalarConverter::ScalarConverter(const ScalarConverter &other) {
+ScalarConverter::ScalarConverter(const std::string &str) : value(str) {
+	std::cout << "Parameterized Constructor called." << std::endl;
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &other) : value(other.value) {
 	std::cout << "Copy Constructor called." << std::endl;
 }
 
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other) {
-	if (this != &other) {
-		std::cout << "Assignment Operator called." << std::endl;
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter &other) {
+	std::cout << "Copy Assignment Operator called." << std::endl;
+	if (this == &other) {
+		return *this;
 	}
+	value = other.value;
 	return *this;
 }
 
 ScalarConverter::~ScalarConverter() {
-	std::cout << "Destructor called." << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
-
-ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::convert(const std::string &literal) {
 	std::stringstream ss(literal);
@@ -42,9 +46,10 @@ void ScalarConverter::convert(const std::string &literal) {
 			print(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c), true);
 		}
 		else if (isInt(literal)) {
+			std::cout << "INT" << std::endl;
 			int i;
 			ss >> i;
-			print(0, i, static_cast<float>(i), static_cast<double>(i), isprint(i));
+			print(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(i), isprint(i));
 		}
 		else if (isFloat(literal)) {
 			float f;
@@ -132,7 +137,7 @@ std::string intToString(int i) {
 }
 
 void ScalarConverter::print(char c, int i, float f, double d, bool validChar) {
-	std::cout << "char: " << (validChar ? std::string(1, c) : "Non displayable") << "\n";
+	std::cout << "char: \'" << (validChar ? std::string(1, c) : "Non displayable") << "\'\n";
 
 	std::cout << "int: " << (i > std::numeric_limits<int>::max() || i < std::numeric_limits<int>::min() ? "impossible" : intToString(i)) << "\n";
 

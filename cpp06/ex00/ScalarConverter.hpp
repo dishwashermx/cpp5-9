@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:24 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/15 18:12:25 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/17 10:04:13 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,14 @@ class ScalarConverter {
 		static void convert(const std::string &literal);
 
 	private:
+		std::string value;
+
 		ScalarConverter();
-		ScalarConverter(const ScalarConverter &);
-		ScalarConverter &operator=(const ScalarConverter &);
+		ScalarConverter(const std::string &str);
+		ScalarConverter(const ScalarConverter &other);
+		ScalarConverter &operator=(const ScalarConverter &other);
 		~ScalarConverter();
+
 		static bool isChar(const std::string &literal);
 		static bool isInt(const std::string &literal);
 		static bool isFloat(const std::string &literal);
