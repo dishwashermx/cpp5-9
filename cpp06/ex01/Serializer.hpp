@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:39:03 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/20 10:10:54 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/23 11:32:29 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
+#include "Data.hpp"
 
 class Serializer {
 	private:
@@ -24,9 +25,9 @@ class Serializer {
 		~Serializer();
 
 		std::string value;
-
-		uintptr_t serialize(Data* ptr);
-		Data* deserialize(uintptr_t raw);
+	public:
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
 
 #endif
