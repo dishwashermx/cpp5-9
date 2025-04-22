@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 09:16:31 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/09 09:54:54 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/04/22 11:51:47 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@
 int main(void) {
 	try {
 		Intern *z = new Intern();
-		AForm *b = z->makeForm("RobotomyRequestForm", "Blender");
+		AForm *b = z->makeForm("s", "Blender");
 		Bureaucrat *a = new Bureaucrat("Emrpor", 1);
 
-		a->signForm(*b);
-		a->executeForm(*b);
+		if (b) {
+			a->signForm(*b);
+			a->executeForm(*b);
+		}
+
+		delete a;
+		delete z;
 	}
+
 	catch (const std::exception &e) {
 		std::cerr << "Caught exception: " << e.what() << std::endl;
 	}
