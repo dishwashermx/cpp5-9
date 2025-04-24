@@ -1,47 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:24 by ghwa              #+#    #+#             */
-/*   Updated: 2025/04/17 09:00:33 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/04/17 15:30:38 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-#define WHATEVER_HPP
+#ifndef ITER_HPP
+#define ITER_HPP
 
 #include <iostream>
+#include <cstddef>
 
-template <typename T>
-T max(T a, T b) {
-	return (a > b) ? a : b;
+template <typename T, typename F>
+void iter(T (&arr), size_t n, F func) {
+	for (size_t i = 0; i < n; ++i)
+		func(arr[i]);
 }
-
-template <typename T>
-T min(T a, T b) {
-	return (a < b) ? a : b;
-}
-
-template <typename T>
-void swap(T& a, T& b) {
-	T temp = a;
-	a = b;
-	b = temp;
-}
-
-// class whatever {
-// 	public:
-// 		whatever();
-// 		whatever(const whatever &other);
-// 		whatever &operator=(const whatever &other);
-// 		~whatever();
-
-// 	private:
-// 		std::string value;
-// };
-
 
 #endif

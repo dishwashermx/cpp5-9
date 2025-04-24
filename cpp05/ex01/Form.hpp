@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:12:05 by ghwa              #+#    #+#             */
-/*   Updated: 2024/11/07 09:33:03 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/04/17 10:41:56 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Bureaucrat;
 
 class Form {
-	protected:
+	private:
 		const std::string _name;
 		const int _signGrade;
 		const int _executeGrade;

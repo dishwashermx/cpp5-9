@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 09:16:31 by ghwa              #+#    #+#             */
-/*   Updated: 2024/11/28 12:16:26 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/04/15 10:07:57 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,22 @@ int main(void) {
 		PresidentialPardonForm form3("bob");
 
 		std::cout << tommy << std::endl;
-		std::cout << form1 << std::endl;
 
+		std::cout << std::endl << form1 << std::endl;
 		std::cout << "Trying to sign the form...\n";
 		tommy.signForm(form1);
 		std::cout << "Trying to execute the form...\n";
 		tommy.executeForm(form1);
 		std::cout << form1 << std::endl;
 
-		std::cout << form2 << std::endl;
+		std::cout << std::endl << form2 << std::endl;
 		std::cout << "Trying to sign the form...\n";
 		tommy.signForm(form2);
 		std::cout << "Trying to execute the form...\n";
 		tommy.executeForm(form2);
 		std::cout << form2 << std::endl;
 
-		std::cout << form3 << std::endl;
+		std::cout << std::endl << form3 << std::endl;
 		std::cout << "Trying to sign the form...\n";
 		tommy.signForm(form3);
 		std::cout << "Trying to execute the form...\n";

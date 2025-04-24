@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:12:07 by ghwa              #+#    #+#             */
-/*   Updated: 2024/11/07 09:35:58 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/04/15 10:03:46 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ const char *Bureaucrat::GradeTooHighException::what(void) const throw() {
 // --------------------------- Misc ----------------------------
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat) {
-	out << bureaucrat.getName() << "is a bureaucrat, grade " << bureaucrat.getGrade() << ".";
+	out << bureaucrat.getName() << " is a bureaucrat, grade " << bureaucrat.getGrade() << ".";
 	return (out);
 }
 
