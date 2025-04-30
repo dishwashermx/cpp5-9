@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:24 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/17 10:04:13 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/04/30 20:17:30 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <string>
 #include <cmath>
 #include <sstream>
+#include <limits.h>
+
 
 class ScalarConverter {
 	public:
