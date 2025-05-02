@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:01 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/17 10:47:57 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/01/17 10:48:56 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void ScalarConverter::convert(const std::string &literal) {
 			print(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c), true);
 		}
 		else if (isInt(literal)) {
-			std::cout << "INT" << std::endl;
 			int i;
 			ss >> i;
 			print(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(i), isprint(i));
