@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:24 by ghwa              #+#    #+#             */
-/*   Updated: 2025/04/24 18:32:31 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/05/02 11:22:16 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define EASYFIND_HPP
 
 #include <iostream>
-#include <stdexcept>
+#include <algorithm>
+
 #define RESET   "\033[0m"
 #define BOLD    "\033[1m"
 #define CYAN    "\033[36m"
@@ -22,11 +23,10 @@
 
 template <typename T>
 typename T::iterator easyfind(T& haystack, int needle) {
-	for (typename T::iterator it = haystack.begin(); it != haystack.end(); ++it) {
-		if (*it == needle)
-			return it;
-	}
-	throw std::runtime_error("Integer not found in Container.");
+	typename T::iterator it = std::find(haystack.begin(), haystack.end(), needle);
+	if (it == haystack.end())
+		throw std::runtime_error("Integer not found in Container.");
+	return (it);
 }
 
 #endif
