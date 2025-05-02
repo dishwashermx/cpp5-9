@@ -6,15 +6,15 @@
 #    By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 13:39:06 by ghwa              #+#    #+#              #
-#    Updated: 2025/01/17 16:44:51 by ghwa             ###   ########.fr        #
+#    Updated: 2025/04/29 16:08:05 by ghwa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
-FLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
-SRCS = main.cpp ScalarConverter.cpp
+FLAGS = -Wall -Werror -Wextra -std=c++98
+SRCS = Span.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = convert
+NAME = span
 
 all:$(NAME)
 
