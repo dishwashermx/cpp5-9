@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 15:39:03 by ghwa              #+#    #+#             */
-/*   Updated: 2025/01/23 14:21:53 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/05/06 11:13:20 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ class Serializer {
 
 		std::string value;
 	public:
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+		static unsigned long serialize(Data* ptr);
+		static Data* deserialize(unsigned long raw);
 };
 
 #endif
