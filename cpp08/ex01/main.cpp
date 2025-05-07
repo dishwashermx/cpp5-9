@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:07:46 by ghwa              #+#    #+#             */
-/*   Updated: 2025/04/29 16:20:41 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/05/07 15:17:36 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ int main() {
 		std::cout << CYAN << BOLD << "\nTests for addNumber" << RESET << std::endl;
 		a.addNumber(6);
 		a.addNumber(3);
-		a.addNumber(17);
-		std::cout << GREY << BOLD << "\nIf you see this you have failed" << RESET << std::endl;
 		a.addNumber(2);
 		Span d;
+		std::cout << "Shortest span: " << a.shortestSpan() << std::endl;
+		std::cout << "Longest span: " << a.longestSpan() << std::endl;
 	} catch (const std::exception& e) {
 		std::cerr << e.what() << std::endl;
 	}
 
-	// std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
-	// std::cout << "Longest span: " << sp.longestSpan() << std::endl;
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:24 by ghwa              #+#    #+#             */
-/*   Updated: 2025/04/29 17:43:56 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/05/07 15:13:33 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #define GREY    "\033[90m"
 #include <vector>
 #include <iostream>
+#include <algorithm>
 
 class Span {
 	private:
@@ -32,8 +33,8 @@ class Span {
 		~Span();
 
 		void addNumber(int number);
-		int shortestSpan();
-		int longestSpan();
+		long shortestSpan();
+		long longestSpan();
 };
 
 
