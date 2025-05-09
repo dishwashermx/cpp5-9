@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:01:10 by ghwa              #+#    #+#             */
-/*   Updated: 2025/05/07 15:16:10 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/05/09 14:00:38 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ void Span::addNumber(int number) {
 	_data.push_back(number);
 }
 
+// void Span::populateVector(int size) {
+
+// }
+
 long Span::shortestSpan() {
 	if (_data.size() < 2)
 		throw std::logic_error("Not enough numbers to find a span");
@@ -66,9 +70,8 @@ long Span::shortestSpan() {
 long Span::longestSpan() {
 	if (_data.size() < 2)
 		throw std::logic_error("Not enough numbers to find a span");
-	int difference = INT_MAX;
 	std::sort(_data.begin(), _data.end());
 	std::vector<int>::iterator it = unique(_data.begin(), _data.end());
 	_data.erase(it, _data.end());
-	return (std::abs(*(_data.end()) - *(_data.begin())));
+	return static_cast<long>(std::abs(*(_data.rbegin()) - *(_data.begin())));
 }

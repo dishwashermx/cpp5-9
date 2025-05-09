@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:24 by ghwa              #+#    #+#             */
-/*   Updated: 2025/05/07 15:13:33 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/05/09 14:00:43 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 class Span {
 	private:
 		std::vector<int> _data;
+		std::vector<int> _rand;
 		unsigned int _maxSize;
 
 	public:
@@ -33,6 +34,8 @@ class Span {
 		~Span();
 
 		void addNumber(int number);
+		// void populateVector(int size);
+		// void addNumberS(std::vector<int> base, int pos1, int pos2);
 		long shortestSpan();
 		long longestSpan();
 };
