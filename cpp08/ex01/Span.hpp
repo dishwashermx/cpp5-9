@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:10:24 by ghwa              #+#    #+#             */
-/*   Updated: 2025/05/09 14:00:43 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/06/20 15:04:46 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <stdexcept>
+#include <iterator>
 
 class Span {
 	private:
 		std::vector<int> _data;
-		std::vector<int> _rand;
 		unsigned int _maxSize;
 
 	public:
@@ -34,8 +35,14 @@ class Span {
 		~Span();
 
 		void addNumber(int number);
-		// void populateVector(int size);
-		// void addNumberS(std::vector<int> base, int pos1, int pos2);
+
+		template <typename Iterator>
+		void addNumber(Iterator begin, Iterator end) {
+			if (std::distance(begin, end) + _data.size() > _maxSize)
+				throw std::overflow_error("Not enough space in Span to add the range");
+			_data.insert(_data.end(), begin, end);
+		}
+		
 		long shortestSpan();
 		long longestSpan();
 };

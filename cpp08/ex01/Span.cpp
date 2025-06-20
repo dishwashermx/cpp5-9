@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:01:10 by ghwa              #+#    #+#             */
-/*   Updated: 2025/05/09 14:00:38 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/06/20 14:57:14 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,34 +44,30 @@ void Span::addNumber(int number) {
 	_data.push_back(number);
 }
 
-// void Span::populateVector(int size) {
-
-// }
 
 long Span::shortestSpan() {
 	if (_data.size() < 2)
-		throw std::logic_error("Not enough numbers to find a span");
+		throw std::overflow_error("Not enough numbers to find a span");
+
+	std::vector<int> temp = _data;
+	std::sort(temp.begin(), temp.end());
+
 	int difference = INT_MAX;
-	std::sort(_data.begin(), _data.end());
-	std::vector<int>::iterator it = unique(_data.begin(), _data.end());
-	_data.erase(it, _data.end());
-	std::vector<int>::const_iterator elem1 = _data.begin();
-	std::vector<int>::const_iterator elem2 = ++_data.begin();
-	for (; elem2 != _data.end(); elem1++, elem2++) {
-		long long1 = *elem1;
-		long long2 = *elem2;
-		long minus = std::abs(long2 - long1);
-		if (minus < difference)
-			difference = minus;
+	for (size_t i = 1; i < temp.size(); ++i) {
+		int diff = temp[i] - temp[i - 1];
+		if (diff < difference)
+			difference = diff;
 	}
-	return (difference);
+	return difference;
 }
+
 
 long Span::longestSpan() {
 	if (_data.size() < 2)
-		throw std::logic_error("Not enough numbers to find a span");
-	std::sort(_data.begin(), _data.end());
-	std::vector<int>::iterator it = unique(_data.begin(), _data.end());
-	_data.erase(it, _data.end());
-	return static_cast<long>(std::abs(*(_data.rbegin()) - *(_data.begin())));
+		throw std::overflow_error("Not enough numbers to find a span");
+
+	std::vector<int> temp = _data;
+	std::sort(temp.begin(), temp.end());
+
+	return static_cast<long>(temp.back() - temp.front());
 }

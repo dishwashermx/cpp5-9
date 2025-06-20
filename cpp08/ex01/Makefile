@@ -6,7 +6,7 @@
 #    By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/21 13:39:06 by ghwa              #+#    #+#              #
-#    Updated: 2025/05/09 13:24:08 by ghwa             ###   ########.fr        #
+#    Updated: 2025/06/20 15:31:47 by ghwa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,12 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
-	rm -f $(OBJS)
 	rm -f $(NAME)
 
-re: clean all
+fclean:
+	clean
+	rm -f $(NAME)
 
-.PHONY: all fclean re
+re: fclean all
+
+.PHONY: all clean fclean re
