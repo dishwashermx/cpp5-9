@@ -6,10 +6,14 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 14:27:53 by ghwa              #+#    #+#             */
-/*   Updated: 2025/04/24 13:59:53 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/06/23 10:04:02 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#define RESET   "\033[0m"
+#define BOLD    "\033[1m"
+#define CYAN    "\033[36m"
+#define GREY    "\033[90m"
 #include "Array.hpp"
 
 int main() {
