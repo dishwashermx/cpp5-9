@@ -1,25 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 12:12:27 by ghwa              #+#    #+#             */
-/*   Updated: 2025/06/25 15:31:09 by ghwa             ###   ########.fr       */
+/*   Created: 2025/06/25 15:20:56 by ghwa              #+#    #+#             */
+/*   Updated: 2025/06/25 15:21:58 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <iostream>
-#include <exception>
-
-int main(int argc, char* argv) {
-	try {
-		if (argc != 2)
-			throw std::
-	}
-	catch (...)
-		std::cerr << "exception caught: " << e.what() << '\n';
-	return (0);
-}
