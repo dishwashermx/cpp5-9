@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:12:27 by ghwa              #+#    #+#             */
-/*   Updated: 2025/06/26 13:32:56 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/06/26 13:36:45 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int main(int argc, char** argv) {
 		}
 		std::ifstream inputFile(argv[1]);
 	}
-	catch (...) {
-		std::cerr << "exception caught: " << e.what() << '\n';
+	catch (std::exception &e) {
+		std::cerr << "Error: " << e.what() << '\n';
 	}
 	return (0);
 }
