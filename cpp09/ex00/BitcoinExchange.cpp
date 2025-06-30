@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:20:56 by ghwa              #+#    #+#             */
-/*   Updated: 2025/06/30 12:23:28 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/06/30 15:00:23 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@
 #include <sstream>
 #include <map>
 
+BitcoinExchange::BitcoinExchange() {
+	std::cout << "Default Constructor" << std::endl;
+}
+
 BitcoinExchange::BitcoinExchange(std::string filename) {
-	std::cout << "Parsing Data File" << std::endl;
+	std::cout << "Parameterized Constructor" << std::endl;
 
 	this->dataFileAddress = filename;
 	std::ifstream dataFile(this->dataFileAddress.c_str());
@@ -43,6 +47,28 @@ BitcoinExchange::BitcoinExchange(std::string filename) {
 	dataFile.close();
 }
 
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) {
+	std::cout << "Copy Constructor" << std::endl;
+	*this = other;
+}
+
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other) {
+	std::cout << "Copy Assignment Operator" << std::endl;
+	if (this == &other)
+		return (*this);
+	this->dataFileAddress = other.dataFileAddress;
+	this->btcData = other.btcData;
+	return (*this);
+}
+
 BitcoinExchange::~BitcoinExchange() {
 	std::cout << "Destructor" << std::endl;
+}
+
+void BitcoinExchange::processInput(std::string filename) {
+	this->inputFileAddress = filename;
+	std::ifstream inputFile(this->inputFileAddress.c_str());
+	if (!inputFile.is_open())
+		throw std::runtime_error("Error: could not open database file.");
 }
