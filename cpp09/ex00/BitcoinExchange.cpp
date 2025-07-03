@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:20:56 by ghwa              #+#    #+#             */
-/*   Updated: 2025/06/30 15:00:23 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/07/03 13:54:38 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,19 @@ void BitcoinExchange::processInput(std::string filename) {
 	std::ifstream inputFile(this->inputFileAddress.c_str());
 	if (!inputFile.is_open())
 		throw std::runtime_error("Error: could not open database file.");
+	
+}
+
+float BitcoinExchange::getRate(const std::string& date, std::map<std::string, float>& btcData) {
+	std::map<std::string, float>::const_iterator it = btcData.find(date);
+	if (it != btcData.end()) {
+		return it->second;
+	}
+
+	it = btcData.lower_bound(date);
+	if (it == btcData.begin())
+		throw std::runtime_error("No earlier data available.");
+	if (it == btcData.end() || it->first != date)
+		--it;
+	return it->second;
 }

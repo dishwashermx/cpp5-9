@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:20:56 by ghwa              #+#    #+#             */
-/*   Updated: 2025/06/30 14:59:15 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/07/03 13:46:27 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ class BitcoinExchange {
 		~BitcoinExchange();
 
 		void processInput(std::string filename);
+		float getRate(const std::string& date, std::map<std::string, float>& btcData);
 } ;
 
