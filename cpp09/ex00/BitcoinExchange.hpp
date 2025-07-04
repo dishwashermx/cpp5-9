@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:20:56 by ghwa              #+#    #+#             */
-/*   Updated: 2025/07/03 17:33:37 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/07/04 12:00:33 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ class BitcoinExchange {
 
 		void processInput(std::string filename);
 		bool splitInputLine(const std::string& line, std::string& date, std::string& value);
-		bool isValidDate(std::string date);
-		float getRate(const std::string& date, std::map<std::string, float>& btcData);
+		bool isValidDate(const std::string dateStr);
+		int getDaysInMonth(int year, int month);
+		bool isValidValue(const std::string& valueStr);
+		float getRate(const std::string& date, float value);
 } ;
 

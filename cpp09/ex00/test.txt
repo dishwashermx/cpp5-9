@@ -1,2 +1,37 @@
-s | 5
-0000-00-00 | s
+date | value
+# Exact match
+2009-01-02 | 1
+# Valid: closest earlier date
+2009-01-04 | 2
+# Valid: latest date
+2023-12-31 | 0.5
+# Bad format (missing delimiter)
+2009-01-02 1
+# Bad format (no value)
+2010-01-02 |
+# Bad format (no date)
+| 1
+# Invalid date (nonexistent date)
+2021-02-30 | 3
+# Invalid date format (wrong dashes)
+2021/02/28 | 2
+# Negative value
+2011-01-03 | -5
+# Value too large
+2012-01-11 | 1000.01
+# Valid upper bound
+2012-01-11 | 1000
+# Valid Float value with leading/trailing space
+  2011-01-03   |   1.5
+# Junk after value
+2011-01-03 | 2abc
+# Value is text
+2011-01-03 | abc
+# Date too early
+2008-12-31 | 5
+# Leap year valid
+2020-02-29 | 3
+# Leap year invalid (not a leap year)
+2019-02-29 | 3
+# Valid Value = 0
+2011-01-03 | 0
