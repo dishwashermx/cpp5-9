@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:20:56 by ghwa              #+#    #+#             */
-/*   Updated: 2025/07/04 12:05:45 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/07/04 17:12:02 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void BitcoinExchange::processInput(std::string filename) {
 	this->inputFileAddress = filename;
 	std::ifstream inputFile(this->inputFileAddress.c_str());
 	if (!inputFile.is_open())
-		throw std::runtime_error("Error: could not open database file.");
+		throw std::runtime_error("Error: could not open file.");
 
 	std::string line;
 	std::getline(inputFile, line); // skipping header line
