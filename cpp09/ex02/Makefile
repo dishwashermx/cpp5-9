@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/08 14:24:56 by ghwa              #+#    #+#              #
-#    Updated: 2025/07/08 14:24:57 by ghwa             ###   ########.fr        #
+#    Created: 2025/07/08 14:24:52 by ghwa              #+#    #+#              #
+#    Updated: 2025/07/08 14:25:16 by ghwa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 FLAGS = -Wall -Wextra -std=c++98
-SRCS = main.cpp RPN.cpp
+SRCS = main.cpp PmergeMe.cpp
 OBJS = $(SRCS:.cpp=.o)
-NAME = RPN
+NAME = PmergeMe
 
 all:$(NAME)
 
