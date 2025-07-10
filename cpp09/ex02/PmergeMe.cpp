@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 14:25:48 by ghwa              #+#    #+#             */
-/*   Updated: 2025/07/10 16:54:26 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/07/10 18:24:20 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void PmergeMe::startClock(T container, std::string type) {
 	}
 
 	clock_t start = clock();
+	mergeInsertSort(container);
 	clock_t end = clock();
 
 	if (type == "vector") {
@@ -96,4 +97,32 @@ void PmergeMe::startClock(T container, std::string type) {
 	std::cout << std::fixed << std::setprecision(6);
 	std::cout << "Time to process a range of " << container.size() \
 	<< " with elements std::" << type << " : " << elapsed << " us" << std::endl;
+}
+
+template <typename T>
+void PmergeMe::mergeInsertSort(T& container) {
+	size_t size = container.size();
+	container<int> winners;
+	container<int> losers;
+	if (size <= 1)
+		return;
+	for (size_t i = 1; i < size; i += 2) {
+		int a = container[i - 1];
+		int b = container[i];
+		if (a > b) {
+			winners.push_back(a);
+			losers.push_back(b);
+		} else {
+			winners.push_back(b);
+			losers.push_back(a);
+		}
+	}
+	if (size % 2 != 0) {
+		winners.push_back(container[size - 1]);
+	}
+	std::cout << "[DEBUG] Winners: ";
+	for (const auto& winner : winners) {
+		std::cout << winner << " ";
+	}
+	std::cout << std::endl;
 }
