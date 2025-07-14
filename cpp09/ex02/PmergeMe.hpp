@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 14:26:07 by ghwa              #+#    #+#             */
-/*   Updated: 2025/07/11 22:51:06 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/07/12 14:17:49 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #define BLUE    "\033[34m"
 #define RESET   "\033[0m"
-
+#define DEBUG_MODE false
 
 class PmergeMe {
 	public:
