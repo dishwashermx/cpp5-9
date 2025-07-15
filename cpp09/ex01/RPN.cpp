@@ -6,7 +6,7 @@
 /*   By: ghwa <ghwa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 08:34:22 by ghwa              #+#    #+#             */
-/*   Updated: 2025/07/08 14:21:26 by ghwa             ###   ########.fr       */
+/*   Updated: 2025/07/10 16:35:32 by ghwa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <string>
 #include <iostream>
+#include <stack>
 
 RPN::RPN() {}
 
